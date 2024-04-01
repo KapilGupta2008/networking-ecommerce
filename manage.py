@@ -1,3 +1,5 @@
+#we impoeted all the imp lib 
+
 from flask.cli import FlaskGroup
 from app import create_app, db
 from flask import current_app
@@ -16,6 +18,10 @@ from app.models.editor.company_orders import CompanyOrders
 from app.models.editor.order_item import OrderItems
 
 cli = FlaskGroup(create_app=create_app)
+
+
+#data of users
+
 
 user_json = [
 	{
@@ -190,10 +196,16 @@ product_json = [
 	}
 ]
 
+#
+
 def recreate_db():
 	db.drop_all()
 	db.create_all()
 	db.session.commit()
+
+
+#to add anything new in the data
+
 
 def seeder():
 	for user in user_json:
